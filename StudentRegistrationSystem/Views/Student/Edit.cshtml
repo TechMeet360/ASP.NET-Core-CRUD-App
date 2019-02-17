@@ -1,0 +1,47 @@
+﻿
+@{
+	Layout = null;
+}
+
+@using StudentRegistrationSystem.Models
+@model StudentRegistrationSystem.Models.StudentViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Edit</title>
+</head>
+<body>
+	<form method="post" enctype="multipart/form-data" asp-controller="Student" asp-action="Edit">
+		<table cellpadding="2"
+					 cellspacing="2">
+			<tr>
+				<td>Registration Id</td>
+				<td>
+					<input asp-for="RegistrationId" />
+				</td>
+			</tr>
+			<tr>
+				<td>StudentName</td>
+				<td>
+					<input asp-for="StudentName" />
+				</td>
+			</tr>
+			<tr>
+				<td>DateOfBirth</td>
+				<td>
+					<input asp-for="DateOfBirth" />
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type="submit" value="Save" />
+					<input type="hidden" asp-for="RegistrationId" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

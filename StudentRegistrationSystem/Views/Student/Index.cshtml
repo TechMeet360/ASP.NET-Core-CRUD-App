@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+</head>
+<body>
+<h3>Name List</h3>
+<a asp-controller="student" asp-action="add">Add Student Detail</a>
+<br />
+<table border="1">
+	<tr>
+		<th>Registration Id</th>
+		<th>Student Name</th>
+		<th>Date of Birth</th>
+	</tr>
+	@foreach (var student in ViewBag.students)
+	{
+		<tr>
+			<td>@student.RegistrationId</td>
+			<td>@student.StudentName</td>
+			<td>@student.DateOfBirth</td>
+			<td>
+				<a asp-controller="student" asp-action="edit" asp-route-id="@student.RegistrationId" >Edit</a>
+				|
+				<a asp-controller="student" asp-action="delete" asp-route-id="@student.RegistrationId"
+					 onclick="return confirm('Are you sure?')">Delete</a>
+
+			</td>
+		</tr>
+	}
+</table>
+</body>
+</html>
+
